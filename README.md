@@ -21,7 +21,7 @@
 - **Chart Visualization**: Chart.js/Recharts
 - **Hosting**: Netlify (Frontend)
 
-🤝 ##Team members
+## 🤝 Team members
 
 - **Team Member 1** - Devadurgam Narasimha
 - **Team Member 2** - Harman Jot
