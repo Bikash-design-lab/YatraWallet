@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TravelPlaner from "../../assets/TravelPlaner.jpg";
 import { Plane, DollarSign, Bell, LineChart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Dashboard = () => {
   return (
@@ -135,30 +135,30 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="flex space-x-4 text-xs">
-          <Link
+          <NavLink
             to="/Dashboard"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             Home
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/FAQPage"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             FAQ
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/Team"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             Meet Our Team
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
             to="/ContactUs"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             Contact
-          </Link>
+          </NavLink>
         </div>
 
         {/* Social Media Links */}

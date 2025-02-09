@@ -201,10 +201,16 @@ const ExpenseTarget = () => {
       setLoading(false);
     }
   };
-
+  const navigate = useNavigate();
   return (
     <div className="  min-h-screen bg-gray-50 bg-gradient-to-r from-orange-100 via-white to-blue-100 ">
       <div className="container mx-auto px-4 py-8">
+        <button
+          onClick={() => navigate("/Expenses")}
+          className="border-1 border-black hover:bg-blue-400 cursor-pointer rounded px-2 mb-1 bg-blue-600 text-white"
+        >
+          goto Expenses
+        </button>
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <Wallet className="h-8 w-8 text-blue-600" />
@@ -318,6 +324,7 @@ const ExpenseTarget = () => {
 export default ExpenseTarget;
 
 import { IndianRupee } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const BudgetList = ({ budgetData }) => {
   const getCategoryIcon = (category) => {

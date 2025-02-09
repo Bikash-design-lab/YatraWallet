@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 // import { createContext } from "react";
 // export const UserExpenseData = createContext();
+import { useNavigate } from "react-router-dom";
+
 import ExpenseDataGraphically from "../GraphAndData/ExpenseDataGraphically";
 const Expenses = () => {
   const [dateExp, setExpDate] = useState("");
@@ -171,12 +173,14 @@ const Expenses = () => {
   );
 };
 import { Calendar, CreditCard, Tag, IndianRupee, FileText } from "lucide-react";
+
 const ExpenseList = ({ expenseData }) => {
   return (
     <div className=" p-4 max-w-auto mx-auto ">
       <h1 className="text-xl font-bold mb-4 text-gray-800">
         An Overview of All My Expenses-
       </h1>
+
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         {expenseData.map((expense, id) => (
           <div

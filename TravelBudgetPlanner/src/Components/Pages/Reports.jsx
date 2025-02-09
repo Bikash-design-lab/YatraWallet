@@ -86,12 +86,24 @@ const Reports = () => {
         });
         console.log("Shared successfully!");
       } else {
-        // Fallback: Copy to clipboard and show an alert
-        await navigator.clipboard.writeText(currentURL);
-        alert("Link copied to clipboard! Share it with anyone.");
+        // Fallback: Copy to clipboard (Handle browsers that don't support navigator.clipboard)
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(currentURL);
+          alert("Link copied to clipboard! Share it with anyone.");
+        } else {
+          // Fallback for older browsers or non-secure environments
+          const input = document.createElement("input");
+          input.value = currentURL;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          alert("Link copied to clipboard!");
+        }
       }
     } catch (error) {
       console.error("Error sharing:", error);
+      alert("Sharing failed. Please try again.");
     }
   };
 
