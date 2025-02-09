@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import "./App.css";
 import Navbar from "./Components/Common/Navbar";
 import Team from "./Components/Pages/Team";
@@ -16,8 +16,8 @@ function App() {
   return (
     <>
       <Navbar />
-
       <Routes>
+        <Route path="/" element={<Navigate to="/Register" />} />
         <Route
           path="/Dashboard"
           element={
@@ -67,14 +67,7 @@ function App() {
             </ProtectedRoutes>
           }
         />
-        <Route
-          path="*"
-          element={
-            <ProtectedRoutes>
-              <NotFound />
-            </ProtectedRoutes>
-          }
-        />
+        <Route path="*" element={<NotFound />} />
         <Route
           path="/FAQPage"
           element={

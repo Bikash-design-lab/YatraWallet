@@ -25,7 +25,7 @@ const NavItems = [
 const UserMenuItems = [
   { id: 1, title: "ContactUs", icon: Contact },
   { id: 2, title: "Team", icon: Handshake },
-  { id: 3, title: "Register", icon: LogOut },
+  { id: 3, title: "/", icon: LogOut },
 ];
 
 const Navbar = () => {
