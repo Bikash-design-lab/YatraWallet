@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "./Components/Common/Navbar";
+import Team from "./Components/Pages/Team";
+import Dashboard from "./Components/Pages/Dashboard";
+import Budget from "./Components/Pages/Budget";
+import Expenses from "./Components/Pages/Expenses";
+import Reports from "./Components/Pages/Reports";
+import Register from "./Components/Pages/Register";
+import NotFound from "./Components/Pages/NotFound";
+import ContactUS from "./Components/Pages/ContactUs";
+import FAQPage from "./Components/Pages/FAQPage";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Navbar />
+
+      <Routes>
+        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Expenses" element={<Expenses />} />
+        <Route path="/Reports" element={<Reports />} />
+        <Route path="/Budget" element={<Budget />} />
+        <Route path="/Register" element={<Register />} />
+        <Route path="/Team" element={<Team />} />
+        <Route path="/ContactUs" element={<ContactUS />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="/FAQPage" element={<FAQPage />} />
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
