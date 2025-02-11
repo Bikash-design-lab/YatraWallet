@@ -20,7 +20,7 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="relative min-h-screen w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12 bg-gray-100">
+    <div className="relative min-h-fit w-full flex items-center justify-center px-4 sm:px-6 lg:px-8 py-4 ">
       {/* Background Image */}
       <div className="absolute inset-0 w-screen h-screen">
         <img

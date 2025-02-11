@@ -104,13 +104,38 @@ const VisualizeBudgetData = ({ budgetData }) => {
         <Pie data={chartData} options={options} />
       </div>
 
-      <div className=" text-center font-bold  ">
-        {" "}
-        {Object.entries(categoryBudget).map(([category, total]) => (
-          <div key={category}>
-            👉 {category}:₹{total}
-          </div>
-        ))}
+      <div className="w-full max-w-md mx-auto overflow-x-auto">
+        <table className="w-full border-collapse bg-white shadow-sm rounded-lg overflow-hidden min-w-[320px]">
+          <thead className="bg-gray-300">
+            <tr>
+              <th className="px-4 sm:px-6 py-3 text-right text-xs sm:text-sm font-semibold text-gray-900">
+                S No.
+              </th>
+              <th className="px-4 sm:px-6 py-3 text-left text-xs sm:text-sm font-semibold text-gray-900">
+                Category
+              </th>
+              <th className="px-4 sm:px-6 py-3 text-right text-xs sm:text-sm font-semibold text-gray-900">
+                Budget
+              </th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-gray-200">
+            {Object.entries(categoryBudget).map(([category, total], id) => (
+              <tr key={category} className="hover:bg-gray-50">
+                <td className="text-center px-4 sm:px-6 py-3 text-xs sm:text-sm">
+                  {id + 1}
+                </td>
+                <td className="px-4 sm:px-6 py-3 text-xs sm:text-sm text-gray-900 flex items-center">
+                  <span className="mr-2"></span>
+                  {category}
+                </td>
+                <td className="px-4 sm:px-6 py-3 text-xs sm:text-sm text-gray-900 text-right">
+                  ₹{total}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

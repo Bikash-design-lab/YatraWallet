@@ -1,7 +1,10 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
-const ProtectedRoutes = ({ children }) => {
+import { Navigate, Outlet } from "react-router-dom";
+
+const ProtectedRoutes = () => {
   const authToken = localStorage.getItem("authToken");
-  return authToken ? children : <Navigate to="/Register" />;
+
+  return authToken ? <Outlet /> : <Navigate to="/register" />;
 };
+
 export default ProtectedRoutes;

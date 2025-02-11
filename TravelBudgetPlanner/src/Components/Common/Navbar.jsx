@@ -9,23 +9,21 @@ import {
   LogOut,
   Menu,
   X,
-  Handshake,
   ShieldQuestion,
 } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const NavItems = [
-  { id: 1, title: "Dashboard", icon: Home },
-  { id: 2, title: "Budget", icon: IndianRupee },
-  { id: 3, title: "Expenses", icon: CreditCard },
-  { id: 4, title: "Reports", icon: FileText },
-  { id: 5, title: "FAQPage", icon: ShieldQuestion },
+  { id: 1, title: "Dashboard", path: "/dashboard", icon: Home },
+  { id: 2, title: "Budget", path: "/budget", icon: IndianRupee },
+  { id: 3, title: "Expenses", path: "/expenses", icon: CreditCard },
+  { id: 4, title: "Reports", path: "/reports", icon: FileText },
+  { id: 5, title: "FAQ", path: "/faq", icon: ShieldQuestion },
 ];
 
 const UserMenuItems = [
-  { id: 1, title: "ContactUs", icon: Contact },
-  { id: 2, title: "Team", icon: Handshake },
-  { id: 3, title: "/", icon: LogOut },
+  { id: 1, title: "Contact Us", path: "/contact", icon: Contact },
+  { id: 2, title: "Logout", path: "/", icon: LogOut },
 ];
 
 const Navbar = () => {
@@ -38,13 +36,13 @@ const Navbar = () => {
   // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
+      if (userMenuRef.current && !userMenuRef.current.contains(event.target)) {
+        setIsUserMenuOpen(false);
+      }
       if (
-        userMenuRef.current &&
-        !userMenuRef.current.contains(event.target) &&
         mobileMenuRef.current &&
         !mobileMenuRef.current.contains(event.target)
       ) {
-        setIsUserMenuOpen(false);
         setIsMobileMenuOpen(false);
       }
     };
@@ -53,13 +51,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="bg-gray-300 shadow-md border-1 sticky top-0 w-full z-50 ">
+    <nav className="bg-gray-300 shadow-md border-b sticky top-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
             <button
-              onClick={() => navigate("/Dashboard")}
+              onClick={() => navigate("/dashboard")}
               className="text-2xl font-bold text-blue-600 cursor-pointer"
             >
               YatraWallet
@@ -70,7 +68,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             {NavItems.map((item) => (
               <NavLink
-                to={`/${item.title}`}
+                to={item.path}
                 key={item.id}
                 className="flex items-center space-x-1 px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md"
               >
@@ -98,12 +96,12 @@ const Navbar = () => {
             </button>
 
             {isUserMenuOpen && (
-              <div className="absolute right-0  mt-44 w-48 bg-white rounded-md shadow-lg py-1">
+              <div className="absolute  right-0 mt-32 w-32 bg-white rounded-md shadow-lg py-1">
                 {UserMenuItems.map((item) => (
                   <NavLink
-                    to={`/${item.title}`}
+                    to={item.path}
                     key={item.id}
-                    className="flex items-center space-x-2 px-4 text-gray-700 hover:bg-gray-100 w-full text-left"
+                    className="border-amber-100 flex items-center px-4  text-gray-700 hover:bg-gray-100 w-full text-left"
                   >
                     <item.icon className="h-4 w-4" />
                     <span>{item.title}</span>
@@ -137,9 +135,9 @@ const Navbar = () => {
             <div className="space-y-1">
               {NavItems.map((item) => (
                 <NavLink
-                  to={`/${item.title}`}
+                  to={item.path}
                   key={item.id}
-                  className="flex items-end space-x-2 w-full px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md"
+                  className="flex items-center space-x-2 w-full px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md"
                 >
                   <item.icon className="h-5 w-5" />
                   <span>{item.title}</span>
@@ -148,9 +146,9 @@ const Navbar = () => {
               <div className="border-t border-gray-200 my-2"></div>
               {UserMenuItems.map((item) => (
                 <NavLink
-                  to={`/${item.title}`}
+                  to={item.path}
                   key={item.id}
-                  className="flex items-right space-x-2 w-full px-2 py-3 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md"
+                  className="flex items-center space-x-2 w-full px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-100 rounded-md"
                 >
                   <item.icon className="h-5 w-5" />
                   <span>{item.title}</span>

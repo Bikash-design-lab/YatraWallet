@@ -72,7 +72,7 @@ const ExpenseDataGraphically = ({ expenseData }) => {
   console.log(expenseData);
   return (
     <div className="min-w-fit my-6 border-gray-400">
-      <h1 className="text-xl font-bold text-center">
+      <h1 className="text-xl text-center font-semibold">
         Expenses Data Visualization
       </h1>
       <div className="w-full h-80">

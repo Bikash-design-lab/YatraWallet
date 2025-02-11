@@ -71,7 +71,7 @@ const TravelHero = () => {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="flex items-center space-x-3 sm:space-x-4 bg-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:bg-white/95"
+              className="border-2 flex items-center space-x-3 sm:space-x-4 bg-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 hover:bg-white/95"
             >
               <div className="flex-shrink-0 bg-white rounded-full p-2 shadow-sm">
                 {feature.icon}
@@ -84,8 +84,8 @@ const TravelHero = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="text-center mt-8 sm:mt-10 lg:mt-12">
-          <Link to="/Budget">
+        <div className="text-center mt-8 sm:mt-10 lg:mt-8">
+          <Link to="/budget">
             <button className="border-1 border-black bg-blue-600 text-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base rounded-full font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-md">
               Start Planning Now
             </button>
@@ -136,25 +136,25 @@ const Footer = () => {
         {/* Navigation Links */}
         <div className="flex space-x-4 text-xs">
           <NavLink
-            to="/Dashboard"
+            to="/dashboard"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             Home
           </NavLink>
           <NavLink
-            to="/FAQPage"
+            to="/faq"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             FAQ
           </NavLink>
           <NavLink
-            to="/Team"
+            to="/reports"
             className="hover:text-blue-500 transition cursor-pointer"
           >
-            Meet Our Team
+            Reports
           </NavLink>
           <NavLink
-            to="/ContactUs"
+            to="/contact"
             className="hover:text-blue-500 transition cursor-pointer"
           >
             Contact

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-// import { createContext } from "react";
-// export const UserExpenseData = createContext();
 import { useNavigate } from "react-router-dom";
 
 import ExpenseDataGraphically from "../GraphAndData/ExpenseDataGraphically";
+
 const Expenses = () => {
+  const navigate = useNavigate();
   const [dateExp, setExpDate] = useState("");
   const [amtExp, setExpAmt] = useState("");
   const [cateExp, setCateExp] = useState("");
@@ -69,16 +69,16 @@ const Expenses = () => {
   };
   return (
     <div className=" bg-gradient-to-r from-orange-100 via-white to-blue-100 ">
-      <h1 className="text-center font-bold text-black text-4xl py-4">
-        🌍 Travel Smart: Set Limits, Track Expenses & Enjoy Stress-Free Trips!
-        ✈️
+      <h1 className="text-center py-4 font-bold text-2xl ">
+        🌍 Travel Smart: Set Your Budget, Add Expenses, and Track Spending
+        Effortlessly! ✈️
       </h1>
       <div className="bg-gradient-to-r pt-2 flex justify-center items-center mx-4">
-        <div className="w-1/3 bg-white border border-gray-200 rounded-lg shadow-sm p-3 hover:shadow-md transition duration-150">
+        <div className="w-1/3 bg-white border border-gray-200 rounded-lg shadow-sm py-2 hover:shadow-md transition duration-150">
           <CurrencyExchnage />
         </div>
 
-        <div className="w-1/3 px-2 rounded mx-2 bg-white">
+        <div className="min-w-fit min-h-fit w-1/3 px-2 rounded mx-2 bg-white border border-gray-200 shadow-sm hover:shadow-md transition duration-150">
           <ExpenseDataGraphically expenseData={exprData} />
         </div>
 
@@ -86,7 +86,7 @@ const Expenses = () => {
           onSubmit={handleSubmit}
           className=" w-1/3  bg-white border border-gray-200 rounded-lg shadow-sm p-6 hover:shadow-md transition duration-150 space-y-2 text-sm"
         >
-          <h2 className="text-center font-semibold">➕ Add a Transaction</h2>
+          <h2 className="text-center font-semibold">➕ Add a Transactions</h2>
 
           <div className="flex flex-col">
             <label htmlFor="date" className="text-gray-600">
@@ -168,7 +168,17 @@ const Expenses = () => {
           </button>
         </form>
       </div>
-      <ExpenseList expenseData={exprData} />
+      <div className="min-w-fit min-h-fit">
+        <ExpenseList expenseData={exprData} />
+      </div>
+      <div className="flex justify-center my-5">
+        <button
+          onClick={(e) => navigate("/reports")}
+          className="px-2 cursor-pointer bg-blue-500 text-white py-1.5 rounded text-xs hover:bg-blue-600 transition"
+        >
+          Generate Report
+        </button>
+      </div>
     </div>
   );
 };
@@ -177,7 +187,7 @@ import { Calendar, CreditCard, Tag, IndianRupee, FileText } from "lucide-react";
 const ExpenseList = ({ expenseData }) => {
   return (
     <div className=" p-4 max-w-auto mx-auto ">
-      <h1 className="text-xl font-bold mb-4 text-gray-800">
+      <h1 className="text-xl mb-4 text-gray-800 font-semibold">
         An Overview of All My Expenses-
       </h1>
 
@@ -227,93 +237,8 @@ const ExpenseList = ({ expenseData }) => {
 };
 export default Expenses;
 
-// -----------------------------------------------------------------------------
-// Showing graph
-// import { Bar } from "react-chartjs-2";
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from "chart.js";
-
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   BarElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
-
-// const ExpenseDataGraphically = ({ expenseData }) => {
-//   const categories = [
-//     "Food",
-//     "Accomodation",
-//     "Hotel",
-//     "Movie",
-//     "Guide",
-//     "Ticket",
-//     "Pets",
-//     "Cloth",
-//     "Health",
-//     "Other",
-//   ];
-
-//   const filteredData = expenseData.filter((expense) =>
-//     categories.includes(expense.category)
-//   );
-
-//   const data = {
-//     labels: filteredData.map((expense) => expense.category),
-//     datasets: [
-//       {
-//         label: "Amount Spent",
-//         data: filteredData.map((expense) => parseFloat(expense.amount)),
-//         backgroundColor: "rgba(75, 192, 192, 0.5)",
-//         borderColor: "rgba(75, 192, 192, 1)",
-//         borderWidth: 1,
-//       },
-//     ],
-//   };
-
-//   const options = {
-//     responsive: true,
-//     maintainAspectRatio: false,
-//     plugins: {
-//       legend: {
-//         display: true,
-//       },
-//       title: {
-//         display: true,
-//         text: "Expenses Breakdown by Category",
-//       },
-//     },
-//     scales: {
-//       y: {
-//         beginAtZero: true,
-//       },
-//     },
-//   };
-
-//   return (
-//     <div className="min-w-fit my-6 border-gray-400">
-//       <h1 className="text-xl font-bold text-center">
-//         Expenses Data Visualization
-//       </h1>
-//       <div className="w-full h-80">
-//         <Bar data={data} options={options} />
-//       </div>
-//     </div>
-//   );
-// };
-
 // ----------------------------------------------------------------------------------------------------------------------------------------------------
 
-// import React, { useEffect, useState } from "react";
 import { Currency, ArrowRightLeft, Loader2, AlertCircle } from "lucide-react";
 
 const CurrencyExchnage = () => {
@@ -466,217 +391,3 @@ const CurrencyExchnage = () => {
     </div>
   );
 };
-
-// export default Dashboard;
-
-// -----------------------------------------------------------------------------------------------------------------------------------------------
-
-// import React, { useEffect, useState } from "react";
-
-// const Expenses = () => {
-//   const [dateExp, setExpDate] = useState("");
-//   const [amtExp, setExpAmt] = useState("");
-//   const [cateExp, setCateExp] = useState("");
-//   const [tranTypeExp, setTranExpType] = useState("");
-//   const [noteExp, setExpNote] = useState("");
-//   const [exprData, setExpData] = useState([]);
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-
-//     // Firebase Realtime Database URL
-//     const firebaseUrl =
-//       "https://expensedatayatrawallet-default-rtdb.asia-southeast1.firebasedatabase.app/Expenses.json";
-
-//     const expenseData = {
-//       date: dateExp,
-//       amount: amtExp,
-//       category: cateExp,
-//       transactionMode: tranTypeExp,
-//       note: noteExp,
-//     };
-
-//     // Making the POST request to Firebase using fetch
-//     fetch(firebaseUrl, {
-//       method: "POST",
-//       body: JSON.stringify(expenseData),
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//     })
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log("Data posted successfully:", data);
-//         // Reset form fields after successful submission
-//         setExpData((prevData) => [...prevData, expenseData]);
-//         setExpDate("");
-//         setExpAmt(0);
-//         setCateExp("");
-//         setTranExpType("");
-//         setExpNote("");
-//       })
-//       .catch((error) => {
-//         console.error("Error posting data:", error);
-//       });
-//   };
-
-//   return (
-//     <div className=" bg-gradient-to-r from-orange-100 via-white to-blue-100">
-//       <h1 className="text-center text-4xl">Expenses page</h1>
-//       <form
-//         onSubmit={handleSubmit}
-//         className="max-w-xs mx-auto bg-white p-3 shadow-md rounded-lg space-y-2 text-sm"
-//       >
-//         <h2 className="text-center font-semibold">Add Expense</h2>
-
-//         <div className="flex flex-col">
-//           <label htmlFor="date" className="text-gray-600">
-//             Date
-//           </label>
-//           <input
-//             required
-//             className="border p-1.5 rounded text-xs"
-//             type="date"
-//             id="date"
-//             value={dateExp}
-//             onChange={(e) => setExpDate(e.target.value)}
-//           />
-//         </div>
-
-//         <div className="flex flex-col">
-//           <label className="text-gray-600">Amount</label>
-//           <input
-//             className="border p-1.5 rounded text-xs"
-//             type="number"
-//             placeholder="Enter amount"
-//             value={amtExp}
-//             onChange={(e) => setExpAmt(e.target.value)}
-//           />
-//         </div>
-
-//         <div className="flex flex-col">
-//           <label className="text-gray-600">Category</label>
-//           <select
-//             required
-//             className="border p-1.5 rounded text-xs"
-//             value={cateExp}
-//             onChange={(e) => setCateExp(e.target.value)}
-//           >
-//             <option value="">Select</option>
-//             <option value="Food">Food</option>
-//             <option value="Accomodation">Accomodation</option>
-//             <option value="Hotel">Hotel</option>
-
-//             <option value="Guide">Guide</option>
-//             <option value="Ticket">Ticket</option>
-
-//             <option value="Pets">Pets</option>
-//             <option value="Cloth">Cloth</option>
-//             <option value="Health">Health</option>
-//             <option value="Other">Other</option>
-//           </select>
-//         </div>
-
-//         <div className="flex flex-col">
-//           <label className="text-gray-600">Transaction Mode</label>
-//           <select
-//             required
-//             className="border p-1.5 rounded text-xs"
-//             value={tranTypeExp}
-//             onChange={(e) => setTranExpType(e.target.value)}
-//           >
-//             <option value="">Select</option>
-//             <option value="UPI">UPI</option>
-//             <option value="CreditCard">Credit Card</option>
-//             <option value="DebitCard">Debit Card</option>
-//             <option value="Cash">Cash</option>
-//           </select>
-//         </div>
-
-//         <div className="flex flex-col">
-//           <label className="text-gray-600">Note</label>
-//           <input
-//             required
-//             className="border p-1.5 rounded text-xs"
-//             type="text"
-//             value={noteExp}
-//             placeholder="Description"
-//             onChange={(e) => setExpNote(e.target.value)}
-//           />
-//         </div>
-
-//         <button
-//           type="submit"
-//           className="w-full bg-blue-500 text-white py-1.5 rounded text-xs hover:bg-blue-600 transition"
-//         >
-//           Submit
-//         </button>
-//       </form>
-
-//       <DetailedExpenses />
-//     </div>
-//   );
-// };
-
-// export default Expenses;
-// // Expense analysis report
-// const DetailedExpenses = () => {
-//   const [expenseData, setExpenseData] = useState([]);
-//   useEffect(() => {
-//     const fetchExpenseData = async () => {
-//       try {
-//         const res = await fetch(
-//           "https://expensedatayatrawallet-default-rtdb.asia-southeast1.firebasedatabase.app/Expenses.json"
-//         );
-//         const out = await res.json();
-//         const expenseArray = Object.values(out);
-//         setExpenseData(expenseArray);
-//       } catch (error) {
-//         console.error(error);
-//       }
-//     };
-//     fetchExpenseData();
-//   }, []);
-//   useEffect(() => {
-//     console.log(expenseData);
-//   }, [expenseData]);
-//   console.log(expenseData);
-//   return (
-//     <>
-//       <h1>My Expenses:-</h1>
-//       <table className="table-auto border-collapse border border-gray-300 text-sm w-full">
-//         <thead>
-//           <tr className="bg-gray-200">
-//             <th className="border border-gray-300 px-2 py-1">Amount</th>
-//             <th className="border border-gray-300 px-2 py-1">Category</th>
-//             <th className="border border-gray-300 px-2 py-1">Date</th>
-//             <th className="border border-gray-300 px-2 py-1">
-//               Transaction Mode
-//             </th>
-//             <th className="border border-gray-300 px-2 py-1">Description</th>
-//           </tr>
-//         </thead>
-//         <tbody>
-//           {expenseData.map((expense, id) => (
-//             <tr key={id} className="border border-gray-300">
-//               <td className="border border-gray-300 px-2 py-1">
-//                 ₹ {expense.amount}
-//               </td>
-//               <td className="border border-gray-300 px-2 py-1">
-//                 {expense.category}
-//               </td>
-//               <td className="border border-gray-300 px-2 py-1">
-//                 {expense.date}
-//               </td>
-//               <td className="border border-gray-300 px-2 py-1">
-//                 {expense.transactionMode}
-//               </td>
-//               <td className="border border-gray-300 px-2 py-1">
-//                 {expense.note}
-//               </td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </>
-//   );
-// };

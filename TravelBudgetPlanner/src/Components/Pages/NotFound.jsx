@@ -48,7 +48,7 @@ const NotFound = () => {
       <p style={messageStyle}>Oops! Page Not Found</p>
       <p>The page you're looking for doesn't exist or has been moved.</p>
       <button
-        onClick={() => navigate("/Dashboard")}
+        onClick={() => navigate("/dashboard")}
         style={linkStyle}
         onMouseOver={(e) =>
           (e.target.style.backgroundColor = "rgb(90, 90, 249)")
