@@ -8,8 +8,8 @@ YatraWallet is a budget planning and expense tracking application that enables u
 
 ## 🌟 Live Demo & Code Repository
 
-- **Live Site:** [Live Site](https://clever-dolphin-9f747c.netlify.app/reports)
-- **Portfolio:** [Live Site](https://leafy-snickerdoodle-129126.netlify.app/#projects)
+- **Live Site:** [Live Site](https://clever-dolphin-9f747c.netlify.app/dashboard)
+- **Portfolio:** [Live Site](https://leafy-snickerdoodle-129126.netlify.app/)
 
 ---
 
