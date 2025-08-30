@@ -24,10 +24,10 @@ const Register = () => {
 
   return (
     <>
-      <h1 className="text-6xl text-center">Welcome users</h1>
+      <h1 className="text-6xl text-center text-bold">Welcome back user</h1>
 
       <h1 className="mt-20 text-2xl text-center ">
-        {isLogedin ? "You are Logged in 🤩" : "You are NOT Logged in 😔"}
+        {isLogedin ? "You are already logged in 🤩" : "You are NOT Logged in 😔"}
       </h1>
       <div className="flex justify-center gap-1 mt-4">
         {isLogedin ? (

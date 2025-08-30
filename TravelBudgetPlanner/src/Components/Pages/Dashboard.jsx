@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TravelPlaner from "../../assets/TravelPlaner.jpg";
+import TravelPlaner from "../../assets/TravelPlaner.jpg?inline";
 import { Plane, DollarSign, Bell, LineChart } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
@@ -44,7 +44,7 @@ const TravelHero = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 sm:py-6 lg:py-8 relative z-10">
         {/* Header */}
         <h1 className="text-center font-bold text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 sm:mb-6 lg:mb-8 px-2 sm:px-4">
           <span className="inline-block transform hover:scale-105 transition-transform duration-200">
@@ -57,7 +57,7 @@ const TravelHero = () => {
         </h1>
 
         {/* Description */}
-        <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+        <div className="text-center mb-8 sm:mb-10 lg:mb-10">
           <p className="text-base sm:text-lg text-gray-200 leading-relaxed max-w-3xl mx-auto px-4 sm:px-6">
             Plan & Manage Your Travel Expenses with Ease. A well-planned budget
             is the key to a stress-free journey! Set spending limits for each
@@ -123,11 +123,10 @@ const Footer = () => {
 
   return (
     <footer
-      className={`bg-gradient-to-r from-orange-100 via-white to-blue-100 text-gray-700 fixed bottom-0 left-0 w-full h-10 flex items-center transition-all duration-300 ${
-        isVisible
-          ? "opacity-85 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
-      }`}
+      className={`bg-gradient-to-r from-orange-100 via-white to-blue-100 text-gray-700 fixed bottom-0 left-0 w-full h-10 flex items-center transition-all duration-300 ${isVisible
+        ? "opacity-85 pointer-events-auto"
+        : "opacity-0 pointer-events-none"
+        }`}
     >
       <div className="container mx-auto px-6 lg:px-20 flex justify-between items-center w-full">
         {/* Logo & App Name */}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import FAQImage from "../../assets/FAQ.jpg";
+import FAQImage from "../../assets/FAQ.jpg?inline";
 import {
   ChevronDown,
   HelpCircle,
@@ -61,42 +61,43 @@ const FAQPage = () => {
   ];
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="relative  min-h-screen w-full overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 w-full h-full">
+      {/* <div className="absolute inset-0 w-full h-full">
         <img
           src={FAQImage}
           alt="Background"
           className="w-full h-full object-cover fixed"
         />
         <div className="absolute inset-0 bg-black/40" />{" "}
-        {/* Overlay for better text readability */}
+      </div> */}
+      <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center"
+        style={{ backgroundImage: `url(${FAQImage})` }}
+      >
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content Container */}
-      <div className="relative min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+      <div className="relative min-h-screen py-2  px-4 sm:px-6 lg:px-8">
         {/* FAQ Container */}
         <div className="max-w-4xl mx-auto">
           {/* Header Section */}
-          <div className="text-center mb-12">
-            <HelpCircle className="w-16 h-16 text-blue-700 mx-auto mb-6" />
-            <h1 className="text-4xl font-bold text-blue-700 mb-4">
-              Frequently Asked Questions
-            </h1>
+          <div className="text-center mb-2">
+            <HelpCircle className="w-16 h-16 text-blue-700 mx-auto" />
             <p className="text-xl text-black font-bold">
-              Find answer to common question about travel expense tracking app
-            </p>
+              Frequently Asked Questions            </p>
           </div>
 
           {/* FAQ Cards */}
-          <div className="space-y-4">
+          <div className="space-y-2">
             {faqs.map((faq, index) => (
               <div
                 key={index}
                 className="border-1 bg-gradient-to-r from-[#ffedd5] via-[#ffffff] to-[#dbeafe] shadow-lg backdrop-blur-sm rounded-lg transition-all duration-300 hover:shadow-xl"
               >
                 <button
-                  className="w-full text-left px-6 py-4 flex items-center justify-between gap-4"
+                  className="cursor-pointer w-full text-left px-6 py-2 flex items-center justify-between gap-4"
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
                   }
@@ -108,16 +109,14 @@ const FAQPage = () => {
                     </h3>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-300 ${
-                      openIndex === index ? "rotate-180" : ""
-                    }`}
+                    className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""
+                      }`}
                   />
                 </button>
 
                 <div
-                  className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                    openIndex === index ? "max-h-96" : "max-h-0"
-                  }`}
+                  className={`overflow-hidden transition-all duration-300 ease-in-out ${openIndex === index ? "max-h-96" : "max-h-0"
+                    }`}
                 >
                   <p className="px-6 pb-6 text-gray-600">{faq.answer}</p>
                 </div>
