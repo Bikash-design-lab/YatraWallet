@@ -55,7 +55,7 @@ const Expenses = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Data posted successfully:", data);
+        // console.log("Data posted successfully:", data);
         setExpData((prevData) => [...prevData, expenseData]);
         setExpDate("");
         setExpAmt(0);

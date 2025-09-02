@@ -94,7 +94,7 @@ const VisualizeBudgetData = ({ budgetData }) => {
       },
     },
   };
-  console.log(budgetData);
+  // console.log(budgetData);
   return (
     <div className=" rounded-lg shadow-md border-gray-500 pb-6">
       <h1 className="text-2xl md:text-3xl lg:text-4xl text-center font-bold py-2 md:py-3 lg:py-4">
